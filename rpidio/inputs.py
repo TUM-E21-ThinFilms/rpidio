@@ -125,5 +125,5 @@ class Inputs:
         return cls.get_selective_inputs(cls.EXTENSION_BOARD1_BUS1)
 
     @classmethod
-    def get_inputs_extension_board1_bus_1(cls):
+    def get_inputs_extension_board1_bus_2(cls):
         return cls.get_selective_inputs(cls.EXTENSION_BOARD1_BUS2)
