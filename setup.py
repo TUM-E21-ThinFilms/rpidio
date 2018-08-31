@@ -17,7 +17,7 @@ import sys
 
 from setuptools import setup, find_packages
 
-requires = ['smbus', 'RPi.GPIO']
+requires = ['smbus-cffi', 'RPi.GPIO']
 
 desc = ('An implementation of the Conrad Relais 197720 card')
 
