@@ -1,10 +1,10 @@
 IO Pi Raspberry Pi with Expansion Board Python 3 Library
 ---
-Python 3 Library to use with Raspberry Pi 3 Modell B+ 
+Python 3 Library to use the Raspberry Pi 3 Modell B+ 
 (Computer-Board, BCM2837B0) and IO Pi Raspberry Pi expansion board 
-from https://www.abelectronics.co.uk
+from https://www.abelectronics.co.uk for reading all digitial input pins
 
-The readme file extra for the extension board can also be found: 
+The readme file for the extension board can be found at
 https://github.com/abelectronicsuk/ABElectronics_Python3_Libraries/blob/master/IOPi/README.md
 
 Install:
