@@ -92,7 +92,7 @@ class Inputs:
         assert isinstance(input, tuple)
         assert len(input) == 2
         assert 0 <= input[0] <= 2
-        assert 1 <= input[1] <= 40
+        assert -1 <= input[1] <= 40
 
     @classmethod
     def get_hardware(cls, input):
