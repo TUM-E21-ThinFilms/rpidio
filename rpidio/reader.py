@@ -34,11 +34,11 @@ class InputReader:
         self._bus.close()
 
     def read(self, input):
-        if Pins.get_hardware(input) == Pins.MAINBOARD:
+        if Inputs.get_hardware(input) == Inputs.MAINBOARD:
             return self._mainb.read(input)
-        elif Pins.get_hardware(input) == Pins.EXTENSION_BOARD1_BUS1:
+        elif Inputs.get_hardware(input) == Inputs.EXTENSION_BOARD1_BUS1:
             return self._extb1_bus1.read(input)
-        elif Pins.get_hardware(input) == Pins.EXTENSION_BOARD1_BUS2:
+        elif Inputs.get_hardware(input) == Inputs.EXTENSION_BOARD1_BUS2:
             return self._extb1_bus2.read(input)
         else:
             raise RuntimeError("Unknow input given")
