@@ -40,6 +40,6 @@ class Mainboard:
 
     def read_all(self):
         try:
-            return RPi.GPIO.input(Inputs.get_pins(Inputs.get_inputs_mainboard()))
+            return [RPi.GPIO.input(input) for input in Inputs.get_pins(Inputs.get_inputs_mainboard())]
         except:
             raise RuntimeError("Cannot read the mainboard")
