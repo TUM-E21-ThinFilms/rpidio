@@ -25,10 +25,13 @@ class InputReader:
         self._mainb = Mainboard()
 
         i2c_helper = ABEHelpers()
-        i2c_bus = i2c_helper.get_smbus()
+        self._bus = i2c_helper.get_smbus()
 
-        self._extb1_bus1 = ExtensionBoardAdapter(i2c_bus, 0x20)
-        self._extb1_bus2 = ExtensionBoardAdapter(i2c_bus, 0x21)
+        self._extb1_bus1 = ExtensionBoardAdapter(self._bus, 0x20)
+        self._extb1_bus2 = ExtensionBoardAdapter(self._bus, 0x21)
+
+    def __del__(self):
+        self._bus.close()
 
     def read(self, input):
         if Pins.get_hardware(input) == Pins.MAINBOARD:
