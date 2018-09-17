@@ -19,8 +19,10 @@ class Inputs:
     NOT_CONNECTED = (0, 0)
     RESERVED = (0, -1)
 
+    # Input 1 and 2 are used for I2C, so do not set any pullup/pulldown registers!
     INPUT_1 = (0, 3)
     INPUT_2 = (0, 5)
+
     INPUT_3 = (0, 7)
     INPUT_4 = (0, 11)
     INPUT_5 = (0, 13)
@@ -45,6 +47,8 @@ class Inputs:
     INPUT_24 = (0, 36)
     INPUT_25 = (0, 38)
     INPUT_26 = (0, 40)
+
+    DISABLED_GPIO = [NOT_CONNECTED, RESERVED, INPUT_1, INPUT_2]
 
     INPUT_27 = (1, 1)
     INPUT_28 = (1, 2)
@@ -116,7 +120,7 @@ class Inputs:
     @classmethod
     def get_selective_inputs(cls, selector):
         return [input for input in cls.get_all_inputs() if
-                cls.get_hardware(input) == selector and input[1] > 0]
+                cls.get_hardware(input) == selector and input not in cls.DISABLED_GPIO]
 
     @classmethod
     def get_inputs_mainboard(cls):
