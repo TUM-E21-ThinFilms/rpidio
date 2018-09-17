@@ -21,7 +21,7 @@ class ExtensionBoardAdapter:
     PORT_INPUTS = 8
     PORT_NUMBER = 2
 
-    TOTAL_INPUTS = ExtensionBoardAdapter.PORT_NUMBER * ExtensionBoardAdapter.PORT_INPUTS
+    TOTAL_INPUTS = PORT_NUMBER * PORT_INPUTS
 
     PORT_0 = 0
     PORT_1 = 1

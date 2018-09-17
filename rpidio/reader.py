@@ -15,7 +15,7 @@
 
 from rpidio.ABE_IOPi.helpers import ABEHelpers
 from rpidio.mainboard import Mainboard
-from rpidio.extboard import Extention
+from rpidio.extboard import ExtensionBoardAdapter
 from rpidio.inputs import Inputs
 
 
