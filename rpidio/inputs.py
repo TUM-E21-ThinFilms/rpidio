@@ -15,7 +15,9 @@
 
 
 class Inputs:
+
     NOT_CONNECTED = (0, 0)
+    RESERVED = (0, -1)
 
     INPUT_1 = (0, 3)
     INPUT_2 = (0, 5)
@@ -90,7 +92,7 @@ class Inputs:
         assert isinstance(input, tuple)
         assert len(input) == 2
         assert 0 <= input[0] <= 2
-        assert 0 <= input[1] <= 40
+        assert 1 <= input[1] <= 40
 
     @classmethod
     def get_hardware(cls, input):

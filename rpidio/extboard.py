@@ -14,14 +14,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from rpidio.ABE_IOPi.iopi import IoPi
-from inputs import Inputs
+from rpidio.inputs import Inputs
 
 
 class ExtensionBoardAdapter:
     PORT_INPUTS = 8
     PORT_NUMBER = 2
 
-    TOTAL_INPUTS = self.PORT_NUMBER * self.PORT_INPUTS
+    TOTAL_INPUTS = ExtensionBoardAdapter.PORT_NUMBER * ExtensionBoardAdapter.PORT_INPUTS
 
     PORT_0 = 0
     PORT_1 = 1

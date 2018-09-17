@@ -15,14 +15,14 @@
 
 from rpidio.ABE_IOPi.helpers import ABEHelpers
 from rpidio.mainboard import Mainboard
-from rpidio.extentionBoard import Extention
+from rpidio.extboard import Extention
 from rpidio.inputs import Inputs
 
 
 class InputReader:
 
     def __init__(self):
-        self._mainb = mainboard()
+        self._mainb = Mainboard()
 
         i2c_helper = ABEHelpers()
         i2c_bus = i2c_helper.get_smbus()
