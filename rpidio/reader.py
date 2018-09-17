@@ -48,10 +48,4 @@ class InputReader:
         reading_extb1_bus1 = self._extb1_bus1.read_all()
         reading_extb1_bus2 = self._extb1_bus2.read_all()
 
-        # Note: This will probably fail for python2.
-        # For python3 this is no problem since integers have no maxsize anymore.
-        reading_extb1_bus1 = reading_extb1_bus1 << self.reading_mainb.get_total_inputs()
-        reading_extb1_bus2 = reading_extb1_bus2 << (
-                self.reading_mainb.get_total_inputs() + reading_extb1_bus1.get_total_inputs())
-
-        return reading_mainb | reading_extb1_bus1 | reading_extb1_bus2
+        return reading_extb1_bus2 + reading_extb1_bus1 + reading_mainb

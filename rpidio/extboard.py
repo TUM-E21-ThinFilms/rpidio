@@ -49,9 +49,20 @@ class ExtensionBoardAdapter:
     def read(self, input):
         return bool(self.ic.read_pin(Pins.get_pin(input)))
 
+    def _int_to_list(self, integer):
+        # we just care about the 8 bytes, anything else will be thrown away
+        integer = 0xFF & integer
+
+        list_int = 8 * [0]
+        for i in range(0, 8):
+            last_bit = integer & 0x01
+            list_int[i] = last_bit
+            integer = integer >> 1
+
+        return list_int
+
     def read_all(self):
         port0 = self.ic.read_port(self.PORT_0)
         port1 = self.ic.read_port(self.PORT_1)
-        # make a 2 byte integer
-        # port0 values are the less significant bits, port1 are the more significant bits
-        return port0 | (port1 << self.PORT_INPUTS)
+
+        return self._int_to_list(port1) + self._int_to_list(port0)
