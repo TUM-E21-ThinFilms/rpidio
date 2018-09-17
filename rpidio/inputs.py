@@ -115,7 +115,7 @@ class Inputs:
 
     @classmethod
     def get_selective_inputs(cls, selector):
-        return [input[1] for input in cls.get_all_inputs() if
+        return [input for input in cls.get_all_inputs() if
                 cls.get_hardware(input) == selector and input[1] > 0]
 
     @classmethod
