@@ -111,7 +111,7 @@ class Inputs:
 
     @classmethod
     def get_all_inputs(cls):
-        return [value for name, value in vars(cls).iteritems() if isinstance(value, tuple)]
+        return [value for (name, value) in iter(vars(cls).items()) if isinstance(value, tuple)]
 
     @classmethod
     def get_selective_inputs(cls, selector):
