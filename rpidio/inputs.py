@@ -95,7 +95,7 @@ class Inputs:
     def _check_input(cls, input):
         assert isinstance(input, tuple)
         assert len(input) == 2
-        assert 0 <= input[0] <= 2
+        assert -1 <= input[0] <= 2
 
         if input[0] in [cls.EXTENSION_BOARD1_BUS1, cls.EXTENSION_BOARD1_BUS2]:
             assert 0 <= input[1] <= 16
