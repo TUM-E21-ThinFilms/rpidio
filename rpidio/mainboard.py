@@ -36,7 +36,7 @@ class Mainboard:
         try:
             return RPi.GPIO.input(Inputs.get_pin(input))
         except:
-            raise RuntimeError("Cannot read pin %s on the mainboard" % str(Pins.get_pin(input)))
+            raise RuntimeError("Cannot read pin %s on the mainboard" % str(Inputs.get_pin(input)))
 
     def read_all(self):
         try:

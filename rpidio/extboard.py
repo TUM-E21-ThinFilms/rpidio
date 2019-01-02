@@ -47,7 +47,7 @@ class ExtensionBoardAdapter:
         return self.TOTAL_INPUTS
 
     def read(self, input):
-        return bool(self.ic.read_pin(Pins.get_pin(input)))
+        return bool(self.ic.read_pin(Inputs.get_pin(input)))
 
     def _int_to_list(self, integer):
         # we just care about the 8 bytes, anything else will be thrown away

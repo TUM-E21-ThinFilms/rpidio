@@ -41,7 +41,7 @@ class InputReader:
         elif Inputs.get_hardware(input) == Inputs.EXTENSION_BOARD1_BUS2:
             return self._extb1_bus2.read(input)
         else:
-            raise RuntimeError("Unknow input given")
+            raise RuntimeError("Unknown input given")
 
     def read_all(self):
         reading_mainb = self._mainb.read_all()
