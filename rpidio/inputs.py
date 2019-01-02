@@ -15,9 +15,8 @@
 
 
 class Inputs:
-
-    NOT_CONNECTED = (0, 0)
-    RESERVED = (0, -1)
+    NOT_CONNECTED = (-1, 0)
+    RESERVED = (-1, -1)
 
     # Input 1 and 2 are used for I2C, so do not set any pullup/pulldown registers!
     INPUT_1 = (0, 3)
@@ -84,6 +83,7 @@ class Inputs:
     INPUT_57 = (2, 15)
     INPUT_58 = (2, 16)
 
+    SPECIAL = -1
     MAINBOARD = 0
     EXTENSION_BOARD1_BUS1 = 1
     EXTENSION_BOARD1_BUS2 = 2
@@ -96,7 +96,15 @@ class Inputs:
         assert isinstance(input, tuple)
         assert len(input) == 2
         assert 0 <= input[0] <= 2
-        assert -1 <= input[1] <= 40
+
+        if input[0] in [cls.EXTENSION_BOARD1_BUS1, cls.EXTENSION_BOARD1_BUS2]:
+            assert 0 <= input[1] <= 16
+
+        if input[0] == cls.MAINBOARD:
+            assert 0 <= input[1] <= 40
+
+        if input[0] == cls.SPECIAL:
+            assert -1 <= input[1] <= 0
 
     @classmethod
     def get_hardware(cls, input):

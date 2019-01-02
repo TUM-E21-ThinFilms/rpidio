@@ -23,7 +23,7 @@ class Mainboard:
         try:
             RPi.GPIO.setmode(RPi.GPIO.BOARD)
             RPi.GPIO.setup(Inputs.get_pins(Inputs.get_inputs_mainboard()), RPi.GPIO.IN, pull_up_down=RPi.GPIO.PUD_DOWN)
-        except:
+        except (RuntimeError, ValueError):
             raise RuntimeError("Mainboard pin setup failed")
 
     def __def__(self):
@@ -35,11 +35,11 @@ class Mainboard:
     def read(self, input):
         try:
             return RPi.GPIO.input(Inputs.get_pin(input))
-        except:
+        except RuntimeError:
             raise RuntimeError("Cannot read pin %s on the mainboard" % str(Inputs.get_pin(input)))
 
     def read_all(self):
         try:
             return [RPi.GPIO.input(input) for input in Inputs.get_pins(Inputs.get_inputs_mainboard())]
-        except:
+        except RuntimeError:
             raise RuntimeError("Cannot read the mainboard")
